@@ -29,7 +29,7 @@ If using [Babel](http://babeljs.io/) (requires
 
 ```json
 {
-  "extends": "jupl/babel"
+  "extends": ["jupl", "jupl/babel"]
 }
 ```
 
@@ -37,6 +37,6 @@ If targeting the browser:
 
 ```json
 {
-  "extends": "jupl/browser"
+  "extends": ["jupl", "jupl/browser"]
 }
 ```

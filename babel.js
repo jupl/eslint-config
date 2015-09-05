@@ -1,6 +1,6 @@
 'use strict'
 
-var baseConfig = require('./config/base')
+var defaultConfig = require('./config/default')
 var config = module.exports = require('./config/babel')
 var rules = [
   'arrow-parens',
@@ -10,6 +10,6 @@ var rules = [
 ]
 
 rules.forEach(function(rule) {
-  config.rules['babel/' + rule] = baseConfig.rules[rule]
+  config.rules['babel/' + rule] = defaultConfig.rules[rule]
   config.rules[rule] = 0
 })

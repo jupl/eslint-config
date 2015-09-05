@@ -30,8 +30,6 @@
   "parser": "babel-eslint",
   "plugins": ["babel"],
   "rules": {
-    "no-sync": 2,
-
     "func-names": 2,
     "func-style": [2, "declaration"],
 

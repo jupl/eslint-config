@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = require('./config/base')
+module.exports = require('./default')

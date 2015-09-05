@@ -27,13 +27,11 @@ Or to `.eslintrc`:
 }
 ```
 
-If using [Babel](http://babeljs.io/) (requires
-[eslint-plugin-babel](babel/eslint-plugin-babel) and
-[babel-eslint](babel/babel-eslint)):
+If targeting modern JS (e.g. [io.js](https://iojs.org/)):
 
 ```json
 {
-  "extends": ["jupl", "jupl/babel"]
+  "extends": ["jupl", "jupl/esnext"]
 }
 ```
 
@@ -42,5 +40,15 @@ If targeting the browser:
 ```json
 {
   "extends": ["jupl", "jupl/browser"]
+}
+```
+
+If using [Babel](http://babeljs.io/) (requires
+[eslint-plugin-babel](babel/eslint-plugin-babel) and
+[babel-eslint](babel/babel-eslint)):
+
+```json
+{
+  "extends": ["jupl", "jupl/esnext", "jupl/babel"]
 }
 ```

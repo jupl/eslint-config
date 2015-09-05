@@ -7,7 +7,8 @@ var path = require('path')
 var tempWrite = require('temp-write')
 var configs = {default: require('../default')}
 configs.browser = extend(true, {}, configs.default, require('../browser'))
-configs.babel = extend(true, {}, configs.default, require('../babel'))
+configs.esnext = extend(true, {}, configs.default, require('../esnext'))
+configs.babel = extend(true, {}, configs.esnext, require('../babel'))
 
 test(function testDefault(t) {
   var result = lint('default.js', configs.default)
@@ -51,15 +52,37 @@ test(function testBadBrowser(t) {
   t.end()
 })
 
+test(function testESNext(t) {
+  var result = lint('esnext.js', configs.esnext)
+  t.is(result.warningCount, 0)
+  t.is(result.errorCount, 0)
+  t.end()
+})
+
+test(function testBadESNext(t) {
+  var result = lint('esnext-bad.js', configs.esnext)
+  var rules = getRules(result)
+  t.is(result.warningCount, 1)
+  t.is(result.errorCount, 4)
+  t.same(rules, [
+    'func-names',
+    'no-process-exit',
+    'no-unused-vars',
+    'no-var',
+    'prefer-arrow-callback',
+  ])
+  t.end()
+})
+
 test(function testBabel(t) {
-  var result = lint('babel.js', configs.babel)
+  var result = lint('esnext.js', configs.babel)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
   t.end()
 })
 
 test(function testBadBabel(t) {
-  var result = lint('babel-bad.js', configs.babel)
+  var result = lint('esnext-bad.js', configs.babel)
   var rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 4)

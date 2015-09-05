@@ -1,6 +1,8 @@
 # eslint-config
 [![NPM](http://img.shields.io/npm/v/eslint-config-jupl.svg?style=flat-square)](https://www.npmjs.org/package/eslint-config-jupl)
 ![License](http://img.shields.io/npm/l/eslint-config-jupl.svg?style=flat-square)
+[![Dev Dependencies](http://img.shields.io/david/dev/jupl/eslint-config.svg?style=flat-square)](https://david-dm.org/jupl/eslint-config#info=devDependencies)
+[![Travis](http://img.shields.io/travis/jupl/eslint-config.svg?style=flat-square&label=travis)](https://travis-ci.org/jupl/eslint-config)
 
 Personal [ESLint](http://eslint.org/)
 [configuration](http://eslint.org/docs/developer-guide/shareable-configs.html).

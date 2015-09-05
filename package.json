@@ -1,0 +1,34 @@
+{
+  "name": "eslint-config-jupl",
+  "version": "0.1.6",
+  "author": "Juan Placencia",
+  "description": "Personal ESLint config",
+  "license": "MIT",
+  "homepage": "https://github.com/jupl/eslint-config",
+  "repository": "jupl/eslint-config",
+  "keywords": [
+    "eslintconfig",
+    "code",
+    "quality",
+    "style",
+    "lint",
+    "linter",
+    "jscs",
+    "jshint",
+    "jslint",
+    "eslint",
+    "validate",
+    "code style",
+    "standard",
+    "strict",
+    "check",
+    "checker",
+    "verify",
+    "enforce",
+    "hint",
+    "simple"
+  ],
+  "dependencies": {
+    "extend": "^3.0.0"
+  }
+}

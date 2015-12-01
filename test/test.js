@@ -1,25 +1,30 @@
-'use strict'
+import test from 'ava'
+import extend from 'extend'
+import tempWrite from 'temp-write'
+import {CLIEngine} from 'eslint'
+import {join} from 'path'
+import defaultConfig from '..'
+import babelConfig from '../babel'
+import browserConfig from '../browser'
+import esnextConfig from '../esnext'
 
-var test = require('ava')
-var eslint = require('eslint')
-var extend = require('extend')
-var path = require('path')
-var tempWrite = require('temp-write')
-var configs = {default: require('..')}
-configs.browser = extend(true, {}, configs.default, require('../browser'))
-configs.esnext = extend(true, {}, configs.default, require('../esnext'))
-configs.babel = extend(true, {}, configs.esnext, require('../babel'))
+const configs = {
+  default: defaultConfig,
+  browser: extend(true, {}, defaultConfig, browserConfig),
+  esnext: extend(true, {}, defaultConfig, esnextConfig),
+  babel: extend(true, {}, defaultConfig, esnextConfig, babelConfig),
+}
 
-test(function testDefault(t) {
-  var result = lint('default.js', configs.default)
+test('Default config: valid', async t => {
+  const result = await lint('default.js', configs.default)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.end()
+  t.pass()
 })
 
-test(function testBadDefault(t) {
-  var result = lint('default-bad.js', configs.default)
-  var rules = getRules(result)
+test('Default config: invalid', async t => {
+  const result = await lint('default-bad.js', configs.default)
+  const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 3)
   t.same(rules, [
@@ -28,19 +33,19 @@ test(function testBadDefault(t) {
     'no-unused-vars',
     'one-var',
   ])
-  t.end()
+  t.pass()
 })
 
-test(function testBrowser(t) {
-  var result = lint('browser.js', configs.browser)
+test('Browser config: valid', async t => {
+  const result = await lint('browser.js', configs.browser)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.end()
+  t.pass()
 })
 
-test(function testBadBrowser(t) {
-  var result = lint('browser-bad.js', configs.browser)
-  var rules = getRules(result)
+test('Browser config: invalid', async t => {
+  const result = await lint('browser-bad.js', configs.browser)
+  const rules = getRules(result)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 4)
   t.same(rules, [
@@ -49,19 +54,19 @@ test(function testBadBrowser(t) {
     'no-undef',
     'no-undef',
   ])
-  t.end()
+  t.pass()
 })
 
-test(function testESNext(t) {
-  var result = lint('esnext.js', configs.esnext)
+test('ESnext config: valid', async t => {
+  const result = await lint('esnext.js', configs.esnext)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.end()
+  t.pass()
 })
 
-test(function testBadESNext(t) {
-  var result = lint('esnext-bad.js', configs.esnext)
-  var rules = getRules(result)
+test('ESnext config: invalid', async t => {
+  const result = await lint('esnext-bad.js', configs.esnext)
+  const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 4)
   t.same(rules, [
@@ -71,19 +76,17 @@ test(function testBadESNext(t) {
     'no-var',
     'prefer-arrow-callback',
   ])
-  t.end()
 })
 
-test(function testBabel(t) {
-  var result = lint('esnext.js', configs.babel)
+test('Babel config: valid', async t => {
+  const result = await lint('esnext.js', configs.babel)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.end()
 })
 
-test(function testBadBabel(t) {
-  var result = lint('esnext-bad.js', configs.babel)
-  var rules = getRules(result)
+test('Babel config: invalid', async t => {
+  const result = await lint('esnext-bad.js', configs.babel)
+  const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 4)
   t.same(rules, [
@@ -93,20 +96,18 @@ test(function testBadBabel(t) {
     'no-var',
     'prefer-arrow-callback',
   ])
-  t.end()
 })
 
-function lint(fixture, config) {
-  var fixtureFile = path.join(__dirname, 'fixtures', fixture)
-  var linter = new eslint.CLIEngine({
+async function lint(fixture, config) {
+  const fixtureFile = join(__dirname, 'fixtures', fixture)
+  const linter = new CLIEngine({
     useEslintrc: false,
-    configFile: tempWrite.sync(JSON.stringify(config)),
+    configFile: await tempWrite(JSON.stringify(config)),
   })
-  return linter.executeOnFiles([fixtureFile]).results[0]
+  const [result] = linter.executeOnFiles([fixtureFile]).results
+  return result
 }
 
 function getRules(result) {
-  return result.messages
-    .map(function(message) { return message.ruleId })
-    .sort()
+  return result.messages.map(({ruleId}) => ruleId).sort()
 }

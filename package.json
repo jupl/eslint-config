@@ -29,6 +29,8 @@
     "simple"
   ],
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "ava test/test.js"
   },
   "devDependencies": {

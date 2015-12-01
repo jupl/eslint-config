@@ -1,5 +1,7 @@
 {
   "parser": "babel-eslint",
   "plugins": ["babel"],
-  "rules": {}
+  "rules": {
+    "babel/no-await-in-loop": 0
+  }
 }

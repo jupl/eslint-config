@@ -14,7 +14,7 @@ Add to  `package.json`:
 ```json
 {
   "eslintConfig": {
-    "extends": "jupl"
+    "extends": ["jupl", "jupl/esnext"]
   }
 }
 ```
@@ -23,15 +23,15 @@ Or to `.eslintrc`:
 
 ```json
 {
-  "extends": "jupl"
+  "extends": ["jupl", "jupl/esnext"]
 }
 ```
 
-If targeting modern JS (e.g. [io.js](https://iojs.org/)):
+If targeting older node.js (< 1.0):
 
 ```json
 {
-  "extends": ["jupl", "jupl/esnext"]
+  "extends": "jupl"
 }
 ```
 

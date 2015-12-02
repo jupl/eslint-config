@@ -31,7 +31,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "ava test/test.js"
+    "test": "ava"
   },
   "devDependencies": {
     "ava": "^0.7.0",

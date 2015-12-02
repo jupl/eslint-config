@@ -1,7 +1,9 @@
 'use strict'
 
-var defaultConfig = require('./config/default')
-var config = module.exports = require('./config/babel')
+var configs = {
+  base: require('./config/base'),
+  babel: require('./config/babel'),
+}
 var rules = [
   'arrow-parens',
   'generator-star-spacing',
@@ -9,14 +11,15 @@ var rules = [
   'object-curly-spacing',
   'object-shorthand',
 ]
+module.exports = configs.babel
 
-rules.filter(hasRuleInDefault).forEach(useBabelRule)
+rules.filter(hasRuleInBase).forEach(useBabelRule)
 
-function hasRuleInDefault(rule) {
-  return !!defaultConfig.rules[rule]
+function hasRuleInBase(rule) {
+  return !!configs.base.rules[rule]
 }
 
 function useBabelRule(rule) {
-  config.rules['babel/' + rule] = defaultConfig.rules[rule]
-  config.rules[rule] = 0
+  configs.babel.rules['babel/' + rule] = configs.base.rules[rule]
+  configs.base.rules[rule] = 0
 }

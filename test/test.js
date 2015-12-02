@@ -3,27 +3,27 @@ import extend from 'extend'
 import tempWrite from 'temp-write'
 import {CLIEngine} from 'eslint'
 import {join} from 'path'
-import defaultConfig from '..'
+import baseConfig from '..'
 import babelConfig from '../babel'
 import browserConfig from '../browser'
 import esnextConfig from '../esnext'
 
 const configs = {
-  default: defaultConfig,
-  browser: extend(true, {}, defaultConfig, browserConfig),
-  esnext: extend(true, {}, defaultConfig, esnextConfig),
-  babel: extend(true, {}, defaultConfig, esnextConfig, babelConfig),
+  base: baseConfig,
+  browser: extend(true, {}, baseConfig, browserConfig),
+  esnext: extend(true, {}, baseConfig, esnextConfig),
+  babel: extend(true, {}, baseConfig, esnextConfig, babelConfig),
 }
 
-test('Default config: valid', async t => {
-  const result = await lint('default.js', configs.default)
+test('Base config: valid', async t => {
+  const result = await lint('base.js', configs.base)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
   t.pass()
 })
 
-test('Default config: invalid', async t => {
-  const result = await lint('default-bad.js', configs.default)
+test('Base config: invalid', async t => {
+  const result = await lint('base-bad.js', configs.base)
   const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 3)

@@ -19,7 +19,6 @@ test('Base config: valid', async t => {
   const result = await lint('base.js', configs.base)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.pass()
 })
 
 test('Base config: invalid', async t => {
@@ -33,14 +32,12 @@ test('Base config: invalid', async t => {
     'no-unused-vars',
     'one-var',
   ])
-  t.pass()
 })
 
 test('Browser config: valid', async t => {
   const result = await lint('browser.js', configs.browser)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.pass()
 })
 
 test('Browser config: invalid', async t => {
@@ -54,14 +51,12 @@ test('Browser config: invalid', async t => {
     'no-undef',
     'no-undef',
   ])
-  t.pass()
 })
 
 test('ESnext config: valid', async t => {
   const result = await lint('esnext.js', configs.esnext)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 0)
-  t.pass()
 })
 
 test('ESnext config: invalid', async t => {

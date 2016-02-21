@@ -1,9 +1,13 @@
 {
+  "parserOptions": {
+    "sourceType": "script"
+  },
   "env": {
     "browser": true,
     "node": false
   },
   "rules": {
+    "no-implicit-globals": 2,
     "no-process-env": 2
   }
 }

@@ -1,12 +1,12 @@
 import test from 'ava'
 import extend from 'extend'
 import tempWrite from 'temp-write'
-import {CLIEngine} from 'eslint'
-import {join} from 'path'
-import baseConfig from '..'
 import babelConfig from '../babel'
+import baseConfig from '..'
 import browserConfig from '../browser'
 import esnextConfig from '../esnext'
+import {CLIEngine} from 'eslint'
+import {join} from 'path'
 
 const configs = {
   base: baseConfig,

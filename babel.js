@@ -5,6 +5,7 @@ var configs = {
   babel: require('./config/babel'),
 }
 var rules = [
+  'array-bracket-spacing',
   'arrow-parens',
   'generator-star-spacing',
   'new-cap',

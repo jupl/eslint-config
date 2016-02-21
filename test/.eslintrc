@@ -1,3 +1,3 @@
 {
-  "extends": ["../esnext.js", "../babel.js"],
+  "extends": ["../esnext.js", "../babel.js", "../react.js"]
 }

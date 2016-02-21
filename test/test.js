@@ -5,6 +5,7 @@ import babelConfig from '../babel'
 import baseConfig from '..'
 import browserConfig from '../browser'
 import esnextConfig from '../esnext'
+import reactConfig from '../react'
 import {CLIEngine} from 'eslint'
 import {join} from 'path'
 
@@ -13,6 +14,7 @@ const configs = {
   browser: extend(true, {}, baseConfig, browserConfig),
   esnext: extend(true, {}, baseConfig, esnextConfig),
   babel: extend(true, {}, baseConfig, esnextConfig, babelConfig),
+  react: extend(true, {}, baseConfig, reactConfig),
 }
 
 test('Base config: valid', async t => {
@@ -91,6 +93,25 @@ test('Babel config: invalid', async t => {
     'no-unused-vars',
     'no-var',
     'prefer-arrow-callback',
+  ])
+})
+
+test('React config: valid', async t => {
+  const result = await lint('react.jsx', configs.react)
+  t.is(result.warningCount, 0)
+  t.is(result.errorCount, 0)
+})
+
+test('React config: invalid', async t => {
+  const result = await lint('react-bad.jsx', configs.react)
+  const rules = getRules(result)
+  t.is(result.warningCount, 0)
+  t.is(result.errorCount, 4)
+  t.same(rules, [
+    'react/jsx-no-bind',
+    'react/react-in-jsx-scope',
+    'react/react-in-jsx-scope',
+    'react/wrap-multilines',
   ])
 })
 

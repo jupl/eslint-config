@@ -52,3 +52,12 @@ If using [Babel](http://babeljs.io/) (requires
   "extends": ["jupl", "jupl/esnext", "jupl/babel"]
 }
 ```
+
+If using [React](facebook/react) (requires
+[eslint-plugin-react](yannickcr/eslint-plugin-babel)):
+
+```json
+{
+  "extends": ["jupl", "jupl/react"]
+}
+```

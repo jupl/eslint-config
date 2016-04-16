@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jupl",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Juan Placencia",
   "description": "Personal ESLint config",
   "license": "MIT",

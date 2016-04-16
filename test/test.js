@@ -28,7 +28,7 @@ test('Base config: invalid', async t => {
   const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 3)
-  t.same(rules, [
+  t.deepEqual(rules, [
     'no-mixed-requires',
     'no-process-exit',
     'no-unused-vars',
@@ -46,13 +46,10 @@ test('Browser config: invalid', async t => {
   const result = await lint('browser-bad.js', configs.browser)
   const rules = getRules(result)
   t.is(result.warningCount, 0)
-  t.is(result.errorCount, 5)
-  t.same(rules, [
+  t.is(result.errorCount, 2)
+  t.deepEqual(rules, [
     'no-implicit-globals',
     'no-process-env',
-    'no-undef',
-    'no-undef',
-    'no-undef',
   ])
 })
 
@@ -67,7 +64,7 @@ test('ESnext config: invalid', async t => {
   const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 4)
-  t.same(rules, [
+  t.deepEqual(rules, [
     'func-names',
     'no-process-exit',
     'no-unused-vars',
@@ -87,7 +84,7 @@ test('Babel config: invalid', async t => {
   const rules = getRules(result)
   t.is(result.warningCount, 1)
   t.is(result.errorCount, 4)
-  t.same(rules, [
+  t.deepEqual(rules, [
     'func-names',
     'no-process-exit',
     'no-unused-vars',
@@ -107,7 +104,7 @@ test('React config: invalid', async t => {
   const rules = getRules(result)
   t.is(result.warningCount, 0)
   t.is(result.errorCount, 4)
-  t.same(rules, [
+  t.deepEqual(rules, [
     'react/jsx-no-bind',
     'react/react-in-jsx-scope',
     'react/react-in-jsx-scope',

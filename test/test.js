@@ -106,9 +106,8 @@ test('React config: invalid', async t => {
   const result = await lint('react-bad.jsx', configs.react)
   const rules = getRules(result)
   t.is(result.warningCount, 0)
-  t.is(result.errorCount, 4)
+  t.is(result.errorCount, 3)
   t.deepEqual(rules, [
-    'react/jsx-no-bind',
     'react/react-in-jsx-scope',
     'react/react-in-jsx-scope',
     'react/wrap-multilines',

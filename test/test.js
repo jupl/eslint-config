@@ -109,9 +109,9 @@ test('React config: invalid', async t => {
   t.is(result.errorCount, 4)
   t.deepEqual(rules, [
     'react/jsx-no-bind',
+    'react/jsx-wrap-multilines',
     'react/react-in-jsx-scope',
     'react/react-in-jsx-scope',
-    'react/wrap-multilines',
   ])
 })
 

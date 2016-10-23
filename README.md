@@ -82,7 +82,7 @@ If using [React](facebook/react) (requires
 {
   "extends": [
     "eslint-config-jupl/ts",
-    "eslint-config/jupl/ts/react"
+    "eslint-config-jupl/ts/react"
   ]
 }
 ```

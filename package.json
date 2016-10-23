@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jupl",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Juan Placencia",
   "description": "Personal ESLint config",
   "license": "MIT",
@@ -26,7 +26,10 @@
     "verify",
     "enforce",
     "hint",
-    "simple"
+    "simple",
+    "tslint",
+    "typescript",
+    "ts"
   ],
   "scripts": {
     "lint": "eslint .",

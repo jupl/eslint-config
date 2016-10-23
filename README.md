@@ -4,10 +4,13 @@
 [![Dev Dependencies](http://img.shields.io/david/dev/jupl/eslint-config.svg?style=flat-square)](https://david-dm.org/jupl/eslint-config#info=devDependencies)
 [![Travis](http://img.shields.io/travis/jupl/eslint-config.svg?style=flat-square&label=travis)](https://travis-ci.org/jupl/eslint-config)
 
-Personal [ESLint](http://eslint.org/)
+Personal [ESLint](http://eslint.org/) and
+[tslint](https://palantir.github.io/tslint/)
 [configuration](http://eslint.org/docs/developer-guide/shareable-configs.html).
 
 ## Usage
+
+### ESLint
 
 Add to  `package.json`:
 
@@ -59,5 +62,27 @@ If using [React](facebook/react) (requires
 ```json
 {
   "extends": ["jupl", "jupl/react"]
+}
+```
+
+### TSLint
+
+Add to  `tslint.json`:
+
+```json
+{
+  "extends": "eslint-config-jupl/ts"
+}
+```
+
+If using [React](facebook/react) (requires
+[tslint-react](palantir/tslint-react)):
+
+```json
+{
+  "extends": [
+    "eslint-config-jupl/ts",
+    "eslint-config/jupl/ts/react"
+  ]
 }
 ```

@@ -117,6 +117,7 @@ test('React config: invalid', async t => {
 async function lint(fixture, config) {
   const fixtureFile = join(__dirname, 'fixtures', fixture)
   const linter = new CLIEngine({
+    ignore: false,
     useEslintrc: false,
     configFile: await tempWrite(JSON.stringify(config)),
   })

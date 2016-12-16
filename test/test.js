@@ -47,13 +47,12 @@ test('Browser config: invalid', async t => {
   const rules = getRules(result)
   t.deepEqual(rules, [
     'no-implicit-globals',
-    'no-process-env',
     'no-undef',
     'no-undef',
     'no-undef',
   ])
   t.is(result.warningCount, 0)
-  t.is(result.errorCount, 5)
+  t.is(result.errorCount, 4)
 })
 
 test('ESnext config: valid', async t => {

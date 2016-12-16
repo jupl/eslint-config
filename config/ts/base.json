@@ -12,7 +12,7 @@
     "no-var-requires": false,
     "only-arrow-functions": [true, "allow-declarations"],
     "prefer-for-of": true,
-    "promise-function-async": true,
+    "promise-function-async": false,
     "typedef": false,
     "typedef-whitespace": [
       true,
@@ -85,7 +85,7 @@
     "arrow-parens": false,
     "class-name": true,
     "comment-format": [true, "check-space"],
-    "completed-docs": true,
+    "completed-docs": false,
     "file-header": false,
     "interface-name": false,
     "jsdoc-format": true,

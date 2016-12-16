@@ -26,14 +26,14 @@ test('Base config: valid', async t => {
 test('Base config: invalid', async t => {
   const result = await lint('base-bad.js', configs.base)
   const rules = getRules(result)
-  t.is(result.warningCount, 1)
-  t.is(result.errorCount, 3)
   t.deepEqual(rules, [
     'no-mixed-requires',
     'no-process-exit',
     'no-unused-vars',
     'one-var',
   ])
+  t.is(result.warningCount, 1)
+  t.is(result.errorCount, 3)
 })
 
 test('Browser config: valid', async t => {
@@ -45,8 +45,6 @@ test('Browser config: valid', async t => {
 test('Browser config: invalid', async t => {
   const result = await lint('browser-bad.js', configs.browser)
   const rules = getRules(result)
-  t.is(result.warningCount, 0)
-  t.is(result.errorCount, 5)
   t.deepEqual(rules, [
     'no-implicit-globals',
     'no-process-env',
@@ -54,6 +52,8 @@ test('Browser config: invalid', async t => {
     'no-undef',
     'no-undef',
   ])
+  t.is(result.warningCount, 0)
+  t.is(result.errorCount, 5)
 })
 
 test('ESnext config: valid', async t => {
@@ -65,8 +65,6 @@ test('ESnext config: valid', async t => {
 test('ESnext config: invalid', async t => {
   const result = await lint('esnext-bad.js', configs.esnext)
   const rules = getRules(result)
-  t.is(result.warningCount, 1)
-  t.is(result.errorCount, 4)
   t.deepEqual(rules, [
     'func-names',
     'no-process-exit',
@@ -74,6 +72,8 @@ test('ESnext config: invalid', async t => {
     'no-var',
     'prefer-arrow-callback',
   ])
+  t.is(result.warningCount, 1)
+  t.is(result.errorCount, 4)
 })
 
 test('Babel config: valid', async t => {
@@ -85,8 +85,6 @@ test('Babel config: valid', async t => {
 test('Babel config: invalid', async t => {
   const result = await lint('esnext-bad.js', configs.babel)
   const rules = getRules(result)
-  t.is(result.warningCount, 1)
-  t.is(result.errorCount, 4)
   t.deepEqual(rules, [
     'func-names',
     'no-process-exit',
@@ -94,6 +92,8 @@ test('Babel config: invalid', async t => {
     'no-var',
     'prefer-arrow-callback',
   ])
+  t.is(result.warningCount, 1)
+  t.is(result.errorCount, 4)
 })
 
 test('React config: valid', async t => {
@@ -105,13 +105,13 @@ test('React config: valid', async t => {
 test('React config: invalid', async t => {
   const result = await lint('react-bad.jsx', configs.react)
   const rules = getRules(result)
-  t.is(result.warningCount, 0)
-  t.is(result.errorCount, 3)
   t.deepEqual(rules, [
     'react/jsx-wrap-multilines',
     'react/react-in-jsx-scope',
     'react/react-in-jsx-scope',
   ])
+  t.is(result.warningCount, 0)
+  t.is(result.errorCount, 3)
 })
 
 async function lint(fixture, config) {

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jupl",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "author": "Juan Placencia",
   "description": "Personal ESLint config",
   "license": "MIT",
@@ -37,12 +37,12 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.2",
     "babel-eslint": "^7.0.0",
     "eslint": "^3.7.1",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.3.0",
     "extend": "^3.0.0",
-    "temp-write": "^2.1.0"
+    "temp-write": "^3.2.0"
   }
 }

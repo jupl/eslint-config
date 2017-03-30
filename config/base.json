@@ -14,6 +14,7 @@
   },
   "rules": {
     "no-await-in-loop": 0,
+    "no-compare-neg-zero": 2,
     "no-cond-assign": [2, "always"],
     "no-console": 0,
     "no-constant-condition": 2,
@@ -115,6 +116,7 @@
       "terms": ["fixme", "todo", "xxx"]
     }],
     "no-with": 2,
+    "prefer-promise-reject-errors": [2, {"allowEmptyReject": false}],
     "radix": 2,
     "require-await": 2,
     "vars-on-top": 2,
@@ -216,6 +218,7 @@
     "no-lonely-if": 2,
     "no-mixed-operators": 2,
     "no-mixed-spaces-and-tabs": 2,
+    "no-multi-assign": 0,
     "no-multiple-empty-lines": [2, {"max": 1}],
     "no-negated-condition": 0,
     "no-nested-ternary": 2,
@@ -228,6 +231,7 @@
     "no-underscore-dangle": 0,
     "no-unneeded-ternary": 2,
     "no-whitespace-before-property": 2,
+    "nonblock-statement-body-position": 0,
     "object-curly-newline": [2, {"multiline": true}],
     "object-curly-spacing": [2, "never"],
     "object-property-newline": [2, {"allowMultiplePropertiesPerLine": true}],
@@ -249,6 +253,7 @@
     "space-infix-ops": [2, {"int32Hint": true}],
     "space-unary-ops": [2, {"words": true, "nonwords": false}],
     "spaced-comment": [2, "always"],
+    "template-tag-spacing": [2, "never"],
     "unicode-bom": [2, "never"],
     "wrap-regex": 0,
 

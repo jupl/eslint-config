@@ -130,7 +130,7 @@
       "check-format",
       "allow-leading-underscore",
       "allow-pascal-case"
-    ]
+    ],
     "whitespace": [
       true,
       "check-decl",

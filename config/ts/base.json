@@ -2,7 +2,7 @@
   "rules": {
     "adjacent-overload-signatures": true,
     "ban-types": false,
-    "member-access": true,
+    "member-access": [true, "no-public"],
     "member-ordering": false,
     "no-any": true,
     "no-import-side-effect": false,
@@ -68,12 +68,15 @@
     "no-unbound-method": false,
     "no-unsafe-any": false,
     "no-unsafe-finally": true,
-    "no-unused-expression": [true, "allow-fast-null-checks"],
-    "no-unused-new": true,
+    "no-unused-expression": [
+      true,
+      "allow-fast-null-checks",
+      "allow-tagged-templates"
+    ],
     "no-unused-variable": [true, {"ignore-pattern": "^_"}],
     "no-use-before-declare": false,
     "no-var-keyword": true,
-    "no-void-expression": true,
+    "no-void-expression": [true, "ignore-arrow-function-shorthand"],
     "radix": true,
     "restrict-plus-operands": true,
     "strict-boolean-expressions": false,
@@ -87,9 +90,9 @@
     "indent": [true, "spaces"],
     "linebreak-style": [true, "LF"],
     "max-classes-per-file": [true, 1],
-    "max-file-line-count": [true, 300],
-    "max-line-length": [true, 79],
-    "no-default-export": false,
+    "max-file-line-count": {"severity": "warn", "options": 300},
+    "max-line-length": {"severity": "warn", "options": 79},
+    "no-default-export": true,
     "no-mergeable-namespace": false,
     "no-require-imports": false,
     "no-trailing-whitespace": true,
@@ -99,7 +102,7 @@
     "prefer-const": true,
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
 
-    "align": [true, "parameters", "statements"],
+    "align": [true, "parameters", "statements", "elements", "members"],
     "array-type": [true, "array"],
     "arrow-parens": false,
     "arrow-return-shorthand": [true, "multiline"],
@@ -138,6 +141,19 @@
       "check-separator",
       "check-type",
       "check-preblock"
-    ]
+    ],
+
+    "deprecation": true,
+    "no-invalid-template-strings": {"severity": "warn"},
+    "no-irregular-whitespace": true,
+    "no-object-literal-type-assertion": true,
+    "no-reference-import": true,
+    "no-sparse-arrays": true,
+    "no-unnecessary-callback-wrapper": true,
+    "no-unnecessary-type-assertion": true,
+    "number-literal-format": true,
+    "prefer-template": true,
+    "prefer-switch": true,
+    "return-undefined": true
   }
 }

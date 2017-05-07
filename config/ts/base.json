@@ -10,9 +10,9 @@
     "no-internal-module": true,
     "no-magic-numbers": true,
     "no-namespace": true,
-    "no-non-null-assertion": false,
+    "no-non-null-assertion": true,
     "no-reference": true,
-    "no-var-requires": false,
+    "no-var-requires": true,
     "only-arrow-functions": [
       true,
       "allow-declarations",
@@ -20,7 +20,7 @@
     ],
     "prefer-for-of": true,
     "promise-function-async": true,
-    "typedef": false,
+    "typedef": true,
     "typedef-whitespace": [
       true,
       {
@@ -65,7 +65,7 @@
     "no-string-literal": true,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-unbound-method": false,
+    "no-unbound-method": true,
     "no-unsafe-any": false,
     "no-unsafe-finally": true,
     "no-unused-expression": [
@@ -79,7 +79,7 @@
     "no-void-expression": [true, "ignore-arrow-function-shorthand"],
     "radix": true,
     "restrict-plus-operands": true,
-    "strict-boolean-expressions": false,
+    "strict-boolean-expressions": true,
     "strict-type-predicates": true,
     "switch-default": true,
     "triple-equals": [true, "allow-undefined-check"],
@@ -108,7 +108,20 @@
     "arrow-return-shorthand": [true, "multiline"],
     "class-name": true,
     "comment-format": [true, "check-space"],
-    "completed-docs": false,
+    "completed-docs": {
+      "severity": "warn",
+      "options": {
+        "classes": {"visibilities": ["exported"]},
+        "enums": {"visibilities": ["exported"]},
+        "functions": {"visibilities": ["exported"]},
+        "interfaces": {"visibilities": ["exported"]},
+        "methods": {"locations": ["all"], "privacies": ["protected", "public"]},
+        "namespaces": {"visibilities": ["exported"]},
+        "properties": {"locations": ["all"], "privacies": ["protected", "public"]},
+        "types": {"visibilities": ["exported"]},
+        "variables": {"visibilities": ["exported"]}
+      }
+    },
     "file-header": false,
     "interface-name": false,
     "jsdoc-format": true,
@@ -122,8 +135,17 @@
     "object-literal-shorthand": true,
     "one-line": false,
     "one-variable-per-declaration": false,
-    "ordered-imports": false,
-    "prefer-function-over-method": false,
+    "ordered-imports": [true, {
+      "named-imports-order": "lowercase-last",
+      "import-sources-order": "lowercase-last"
+    }],
+    "prefer-function-over-method": {
+      "severity": "warn",
+      "options": [
+        "allow-public",
+        "allow-protected"
+      ]
+    },
     "prefer-method-signature": true,
     "quotemark": [true, "single", "jsx-double", "avoid-escape"],
     "semicolon": [true, "never"],

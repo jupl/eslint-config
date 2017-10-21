@@ -1,4 +1,6 @@
 # eslint-config
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jupl/eslint-config.svg)](https://greenkeeper.io/)
 [![NPM](http://img.shields.io/npm/v/eslint-config-jupl.svg?style=flat-square)](https://www.npmjs.org/package/eslint-config-jupl)
 ![License](http://img.shields.io/npm/l/eslint-config-jupl.svg?style=flat-square)
 [![Dev Dependencies](http://img.shields.io/david/dev/jupl/eslint-config.svg?style=flat-square)](https://david-dm.org/jupl/eslint-config#info=devDependencies)
